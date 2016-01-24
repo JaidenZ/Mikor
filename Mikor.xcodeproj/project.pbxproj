@@ -1,0 +1,506 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F22E553D1C4E539D007C48CB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22E553C1C4E539D007C48CB /* AppDelegate.swift */; };
+		F22E55421C4E539D007C48CB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F22E55401C4E539D007C48CB /* Main.storyboard */; };
+		F22E55441C4E539D007C48CB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F22E55431C4E539D007C48CB /* Assets.xcassets */; };
+		F22E55471C4E539D007C48CB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F22E55451C4E539D007C48CB /* LaunchScreen.storyboard */; };
+		F28E3A231C4FB9EA009D3C53 /* ControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F28E3A151C4FB9E9009D3C53 /* ControllerExtension.swift */; };
+		F28E3A251C4FB9EA009D3C53 /* MainTabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F28E3A171C4FB9EA009D3C53 /* MainTabbarController.swift */; };
+		F28E3A261C4FB9EA009D3C53 /* FoundViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F28E3A1B1C4FB9EA009D3C53 /* FoundViewController.swift */; };
+		F28E3A271C4FB9EA009D3C53 /* ComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F28E3A1D1C4FB9EA009D3C53 /* ComposeViewController.swift */; };
+		F28E3A281C4FB9EA009D3C53 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F28E3A1E1C4FB9EA009D3C53 /* HomeViewController.swift */; };
+		F28E3A291C4FB9EA009D3C53 /* MessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F28E3A201C4FB9EA009D3C53 /* MessViewController.swift */; };
+		F28E3A2A1C4FB9EA009D3C53 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F28E3A221C4FB9EA009D3C53 /* ProfileViewController.swift */; };
+		F2F900041C515316007BE1EC /* ScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F900031C515316007BE1EC /* ScrollViewController.swift */; };
+		F2FFB4A21C54F01700B86DE7 /* libWeiboSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F2FFB4961C54F01700B86DE7 /* libWeiboSDK.a */; };
+		F2FFB4A31C54F01700B86DE7 /* WeiboSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F2FFB49F1C54F01700B86DE7 /* WeiboSDK.bundle */; };
+		F2FFB4A51C54F13300B86DE7 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2FFB4A41C54F13300B86DE7 /* QuartzCore.framework */; };
+		F2FFB4A71C54F13B00B86DE7 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2FFB4A61C54F13B00B86DE7 /* ImageIO.framework */; };
+		F2FFB4A91C54F14500B86DE7 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2FFB4A81C54F14500B86DE7 /* SystemConfiguration.framework */; };
+		F2FFB4AB1C54F15300B86DE7 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2FFB4AA1C54F15300B86DE7 /* Security.framework */; };
+		F2FFB4AD1C54F15E00B86DE7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2FFB4AC1C54F15E00B86DE7 /* Foundation.framework */; };
+		F2FFB4AF1C54F16B00B86DE7 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2FFB4AE1C54F16B00B86DE7 /* CoreTelephony.framework */; };
+		F2FFB4B11C54F17A00B86DE7 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2FFB4B01C54F17A00B86DE7 /* CoreText.framework */; };
+		F2FFB4B31C54F18400B86DE7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2FFB4B21C54F18400B86DE7 /* UIKit.framework */; };
+		F2FFB4B51C54F18D00B86DE7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2FFB4B41C54F18D00B86DE7 /* CoreGraphics.framework */; };
+		F2FFB4B71C54F24300B86DE7 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F2FFB4B61C54F24300B86DE7 /* libsqlite3.tbd */; };
+		F2FFB4B91C54F25900B86DE7 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F2FFB4B81C54F25900B86DE7 /* libz.tbd */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		F22E55391C4E539D007C48CB /* Mikor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mikor.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F22E553C1C4E539D007C48CB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		F22E55411C4E539D007C48CB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		F22E55431C4E539D007C48CB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F22E55461C4E539D007C48CB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		F22E55481C4E539D007C48CB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F28E3A151C4FB9E9009D3C53 /* ControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControllerExtension.swift; sourceTree = "<group>"; };
+		F28E3A171C4FB9EA009D3C53 /* MainTabbarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabbarController.swift; sourceTree = "<group>"; };
+		F28E3A1B1C4FB9EA009D3C53 /* FoundViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoundViewController.swift; sourceTree = "<group>"; };
+		F28E3A1D1C4FB9EA009D3C53 /* ComposeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComposeViewController.swift; sourceTree = "<group>"; };
+		F28E3A1E1C4FB9EA009D3C53 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		F28E3A201C4FB9EA009D3C53 /* MessViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessViewController.swift; sourceTree = "<group>"; };
+		F28E3A221C4FB9EA009D3C53 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		F2F900031C515316007BE1EC /* ScrollViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrollViewController.swift; sourceTree = "<group>"; };
+		F2FFB4961C54F01700B86DE7 /* libWeiboSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeiboSDK.a; sourceTree = "<group>"; };
+		F2FFB4971C54F01700B86DE7 /* WBHttpRequest+WeiboGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WBHttpRequest+WeiboGame.h"; sourceTree = "<group>"; };
+		F2FFB4981C54F01700B86DE7 /* WBHttpRequest+WeiboShare.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WBHttpRequest+WeiboShare.h"; sourceTree = "<group>"; };
+		F2FFB4991C54F01700B86DE7 /* WBHttpRequest+WeiboToken.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WBHttpRequest+WeiboToken.h"; sourceTree = "<group>"; };
+		F2FFB49A1C54F01700B86DE7 /* WBHttpRequest+WeiboUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WBHttpRequest+WeiboUser.h"; sourceTree = "<group>"; };
+		F2FFB49B1C54F01700B86DE7 /* WBHttpRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBHttpRequest.h; sourceTree = "<group>"; };
+		F2FFB49C1C54F01700B86DE7 /* WBSDKBasicButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBSDKBasicButton.h; sourceTree = "<group>"; };
+		F2FFB49D1C54F01700B86DE7 /* WBSDKCommentButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBSDKCommentButton.h; sourceTree = "<group>"; };
+		F2FFB49E1C54F01700B86DE7 /* WBSDKRelationshipButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBSDKRelationshipButton.h; sourceTree = "<group>"; };
+		F2FFB49F1C54F01700B86DE7 /* WeiboSDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = WeiboSDK.bundle; sourceTree = "<group>"; };
+		F2FFB4A01C54F01700B86DE7 /* WeiboSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeiboSDK.h; sourceTree = "<group>"; };
+		F2FFB4A11C54F01700B86DE7 /* WeiboUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeiboUser.h; sourceTree = "<group>"; };
+		F2FFB4A41C54F13300B86DE7 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		F2FFB4A61C54F13B00B86DE7 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
+		F2FFB4A81C54F14500B86DE7 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		F2FFB4AA1C54F15300B86DE7 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		F2FFB4AC1C54F15E00B86DE7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		F2FFB4AE1C54F16B00B86DE7 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		F2FFB4B01C54F17A00B86DE7 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
+		F2FFB4B21C54F18400B86DE7 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		F2FFB4B41C54F18D00B86DE7 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		F2FFB4B61C54F24300B86DE7 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		F2FFB4B81C54F25900B86DE7 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		F2FFB4BB1C55071B00B86DE7 /* Mikor-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Mikor-Bridging-Header.h"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F22E55361C4E539D007C48CB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F2FFB4B91C54F25900B86DE7 /* libz.tbd in Frameworks */,
+				F2FFB4B71C54F24300B86DE7 /* libsqlite3.tbd in Frameworks */,
+				F2FFB4B51C54F18D00B86DE7 /* CoreGraphics.framework in Frameworks */,
+				F2FFB4B31C54F18400B86DE7 /* UIKit.framework in Frameworks */,
+				F2FFB4B11C54F17A00B86DE7 /* CoreText.framework in Frameworks */,
+				F2FFB4AF1C54F16B00B86DE7 /* CoreTelephony.framework in Frameworks */,
+				F2FFB4AD1C54F15E00B86DE7 /* Foundation.framework in Frameworks */,
+				F2FFB4AB1C54F15300B86DE7 /* Security.framework in Frameworks */,
+				F2FFB4A91C54F14500B86DE7 /* SystemConfiguration.framework in Frameworks */,
+				F2FFB4A71C54F13B00B86DE7 /* ImageIO.framework in Frameworks */,
+				F2FFB4A51C54F13300B86DE7 /* QuartzCore.framework in Frameworks */,
+				F2FFB4A21C54F01700B86DE7 /* libWeiboSDK.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F22E55301C4E539D007C48CB = {
+			isa = PBXGroup;
+			children = (
+				F2FFB4BA1C54F31B00B86DE7 /* Framework */,
+				F22E553B1C4E539D007C48CB /* Mikor */,
+				F22E553A1C4E539D007C48CB /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F22E553A1C4E539D007C48CB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F22E55391C4E539D007C48CB /* Mikor.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F22E553B1C4E539D007C48CB /* Mikor */ = {
+			isa = PBXGroup;
+			children = (
+				F28E3A141C4FB9E9009D3C53 /* CustomController */,
+				F28E3A191C4FB9EA009D3C53 /* ViewController */,
+				F28E3A181C4FB9EA009D3C53 /* Tool */,
+				F22E55511C4E54B2007C48CB /* Supporting Files */,
+			);
+			path = Mikor;
+			sourceTree = "<group>";
+		};
+		F22E55511C4E54B2007C48CB /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F22E553C1C4E539D007C48CB /* AppDelegate.swift */,
+				F22E55431C4E539D007C48CB /* Assets.xcassets */,
+				F22E55451C4E539D007C48CB /* LaunchScreen.storyboard */,
+				F22E55401C4E539D007C48CB /* Main.storyboard */,
+				F22E55481C4E539D007C48CB /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F28E3A141C4FB9E9009D3C53 /* CustomController */ = {
+			isa = PBXGroup;
+			children = (
+				F28E3A151C4FB9E9009D3C53 /* ControllerExtension.swift */,
+				F28E3A171C4FB9EA009D3C53 /* MainTabbarController.swift */,
+			);
+			path = CustomController;
+			sourceTree = "<group>";
+		};
+		F28E3A181C4FB9EA009D3C53 /* Tool */ = {
+			isa = PBXGroup;
+			children = (
+				F2FFB4951C54F01700B86DE7 /* libWeiboSDK */,
+				F2FFB4BB1C55071B00B86DE7 /* Mikor-Bridging-Header.h */,
+			);
+			path = Tool;
+			sourceTree = "<group>";
+		};
+		F28E3A191C4FB9EA009D3C53 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				F28E3A1A1C4FB9EA009D3C53 /* Found */,
+				F2F900021C514FF3007BE1EC /* Guide */,
+				F28E3A1C1C4FB9EA009D3C53 /* Home */,
+				F28E3A1F1C4FB9EA009D3C53 /* Message */,
+				F28E3A211C4FB9EA009D3C53 /* Profile */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		F28E3A1A1C4FB9EA009D3C53 /* Found */ = {
+			isa = PBXGroup;
+			children = (
+				F28E3A1B1C4FB9EA009D3C53 /* FoundViewController.swift */,
+			);
+			path = Found;
+			sourceTree = "<group>";
+		};
+		F28E3A1C1C4FB9EA009D3C53 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				F28E3A1D1C4FB9EA009D3C53 /* ComposeViewController.swift */,
+				F28E3A1E1C4FB9EA009D3C53 /* HomeViewController.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		F28E3A1F1C4FB9EA009D3C53 /* Message */ = {
+			isa = PBXGroup;
+			children = (
+				F28E3A201C4FB9EA009D3C53 /* MessViewController.swift */,
+			);
+			path = Message;
+			sourceTree = "<group>";
+		};
+		F28E3A211C4FB9EA009D3C53 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				F28E3A221C4FB9EA009D3C53 /* ProfileViewController.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		F2F900021C514FF3007BE1EC /* Guide */ = {
+			isa = PBXGroup;
+			children = (
+				F2F900031C515316007BE1EC /* ScrollViewController.swift */,
+			);
+			name = Guide;
+			path = Profile/Guide;
+			sourceTree = "<group>";
+		};
+		F2FFB4951C54F01700B86DE7 /* libWeiboSDK */ = {
+			isa = PBXGroup;
+			children = (
+				F2FFB4961C54F01700B86DE7 /* libWeiboSDK.a */,
+				F2FFB4971C54F01700B86DE7 /* WBHttpRequest+WeiboGame.h */,
+				F2FFB4981C54F01700B86DE7 /* WBHttpRequest+WeiboShare.h */,
+				F2FFB4991C54F01700B86DE7 /* WBHttpRequest+WeiboToken.h */,
+				F2FFB49A1C54F01700B86DE7 /* WBHttpRequest+WeiboUser.h */,
+				F2FFB49B1C54F01700B86DE7 /* WBHttpRequest.h */,
+				F2FFB49C1C54F01700B86DE7 /* WBSDKBasicButton.h */,
+				F2FFB49D1C54F01700B86DE7 /* WBSDKCommentButton.h */,
+				F2FFB49E1C54F01700B86DE7 /* WBSDKRelationshipButton.h */,
+				F2FFB49F1C54F01700B86DE7 /* WeiboSDK.bundle */,
+				F2FFB4A01C54F01700B86DE7 /* WeiboSDK.h */,
+				F2FFB4A11C54F01700B86DE7 /* WeiboUser.h */,
+			);
+			path = libWeiboSDK;
+			sourceTree = "<group>";
+		};
+		F2FFB4BA1C54F31B00B86DE7 /* Framework */ = {
+			isa = PBXGroup;
+			children = (
+				F2FFB4B81C54F25900B86DE7 /* libz.tbd */,
+				F2FFB4B61C54F24300B86DE7 /* libsqlite3.tbd */,
+				F2FFB4B41C54F18D00B86DE7 /* CoreGraphics.framework */,
+				F2FFB4B21C54F18400B86DE7 /* UIKit.framework */,
+				F2FFB4B01C54F17A00B86DE7 /* CoreText.framework */,
+				F2FFB4AE1C54F16B00B86DE7 /* CoreTelephony.framework */,
+				F2FFB4AC1C54F15E00B86DE7 /* Foundation.framework */,
+				F2FFB4AA1C54F15300B86DE7 /* Security.framework */,
+				F2FFB4A81C54F14500B86DE7 /* SystemConfiguration.framework */,
+				F2FFB4A61C54F13B00B86DE7 /* ImageIO.framework */,
+				F2FFB4A41C54F13300B86DE7 /* QuartzCore.framework */,
+			);
+			name = Framework;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F22E55381C4E539D007C48CB /* Mikor */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F22E554B1C4E539D007C48CB /* Build configuration list for PBXNativeTarget "Mikor" */;
+			buildPhases = (
+				F22E55351C4E539D007C48CB /* Sources */,
+				F22E55361C4E539D007C48CB /* Frameworks */,
+				F22E55371C4E539D007C48CB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Mikor;
+			productName = Mikor;
+			productReference = F22E55391C4E539D007C48CB /* Mikor.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F22E55311C4E539D007C48CB /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0710;
+				LastUpgradeCheck = 0710;
+				ORGANIZATIONNAME = Jaiden;
+				TargetAttributes = {
+					F22E55381C4E539D007C48CB = {
+						CreatedOnToolsVersion = 7.1.1;
+					};
+				};
+			};
+			buildConfigurationList = F22E55341C4E539D007C48CB /* Build configuration list for PBXProject "Mikor" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F22E55301C4E539D007C48CB;
+			productRefGroup = F22E553A1C4E539D007C48CB /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F22E55381C4E539D007C48CB /* Mikor */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F22E55371C4E539D007C48CB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F22E55471C4E539D007C48CB /* LaunchScreen.storyboard in Resources */,
+				F22E55441C4E539D007C48CB /* Assets.xcassets in Resources */,
+				F22E55421C4E539D007C48CB /* Main.storyboard in Resources */,
+				F2FFB4A31C54F01700B86DE7 /* WeiboSDK.bundle in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F22E55351C4E539D007C48CB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F28E3A261C4FB9EA009D3C53 /* FoundViewController.swift in Sources */,
+				F22E553D1C4E539D007C48CB /* AppDelegate.swift in Sources */,
+				F28E3A291C4FB9EA009D3C53 /* MessViewController.swift in Sources */,
+				F28E3A271C4FB9EA009D3C53 /* ComposeViewController.swift in Sources */,
+				F2F900041C515316007BE1EC /* ScrollViewController.swift in Sources */,
+				F28E3A231C4FB9EA009D3C53 /* ControllerExtension.swift in Sources */,
+				F28E3A251C4FB9EA009D3C53 /* MainTabbarController.swift in Sources */,
+				F28E3A2A1C4FB9EA009D3C53 /* ProfileViewController.swift in Sources */,
+				F28E3A281C4FB9EA009D3C53 /* HomeViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		F22E55401C4E539D007C48CB /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F22E55411C4E539D007C48CB /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		F22E55451C4E539D007C48CB /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F22E55461C4E539D007C48CB /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F22E55491C4E539D007C48CB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		F22E554A1C4E539D007C48CB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F22E554C1C4E539D007C48CB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Mikor/Tool/libWeiboSDK",
+				);
+				INFOPLIST_FILE = Mikor/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Mikor/Tool/libWeiboSDK",
+				);
+				"OTHER_LDFLAGS[arch=*]" = "-all_load";
+				PRODUCT_BUNDLE_IDENTIFIER = com.Jaiden.Mikor;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Mikor/Tool/Mikor-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		F22E554D1C4E539D007C48CB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Mikor/Tool/libWeiboSDK",
+				);
+				INFOPLIST_FILE = Mikor/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Mikor/Tool/libWeiboSDK",
+				);
+				"OTHER_LDFLAGS[arch=*]" = "-all_load";
+				PRODUCT_BUNDLE_IDENTIFIER = com.Jaiden.Mikor;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Mikor/Tool/Mikor-Bridging-Header.h";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F22E55341C4E539D007C48CB /* Build configuration list for PBXProject "Mikor" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F22E55491C4E539D007C48CB /* Debug */,
+				F22E554A1C4E539D007C48CB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F22E554B1C4E539D007C48CB /* Build configuration list for PBXNativeTarget "Mikor" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F22E554C1C4E539D007C48CB /* Debug */,
+				F22E554D1C4E539D007C48CB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F22E55311C4E539D007C48CB /* Project object */;
+}
