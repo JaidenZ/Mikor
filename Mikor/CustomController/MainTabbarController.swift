@@ -33,6 +33,8 @@ class MainTabbarController: UITabBarController , UITabBarControllerDelegate{
         
         //把自己作为自己的代理(委托自己操作)
         self.delegate = self
+        
+
     }
     
     override func didReceiveMemoryWarning() {
@@ -84,7 +86,7 @@ class MainTabbarController: UITabBarController , UITabBarControllerDelegate{
     
     //判断是否需要切换tabbar
     func tabBarController(tabBarController: UITabBarController, shouldSelectViewController viewController: UIViewController) -> Bool {
-        
+        print("切换视图")
         if(viewController.tabBarItem.title == nil)
         {
             let view = ComposeViewController()
@@ -95,5 +97,7 @@ class MainTabbarController: UITabBarController , UITabBarControllerDelegate{
         }
         return true
     }
+    
+
     
 }

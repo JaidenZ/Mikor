@@ -20,6 +20,7 @@ class HomeViewController: UIViewController{
         self.navigationItem.leftBarButtonItem = UIBarButtonItem.ButtonItem(self, action: "btnAddArticle", imageNormal: "navigationbar_compose", imageHighlight: "navigationbar_compose_highlighted")
         self.navigationItem.rightBarButtonItem = UIBarButtonItem.ButtonItem(self, action: "btnfreshQRCode", imageNormal: "navigationbar_pop", imageHighlight: "navigationbar_pop_highlighted")
         
+        
     }
     
     override func didReceiveMemoryWarning() {

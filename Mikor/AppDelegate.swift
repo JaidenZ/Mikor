@@ -8,16 +8,10 @@
 
 import UIKit
 
-
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate,WeiboSDKDelegate{
 
     var window: UIWindow?
-
-    
-    //微博SDK相关属性
-    let AppKey = "4076232121"
-    let RedirectURL = "https://api.weibo.com/oauth2/default.html"
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
@@ -26,6 +20,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate,WeiboSDKDelegate{
         WeiboSDK.enableDebugMode(true)
         WeiboSDK.registerApp(AppKey)
         
+        //判断授权
+        ExiseAuthorization()
         //创建窗口
         self.window?.frame = UIScreen.mainScreen().bounds//将窗口设置为屏幕大小
         
@@ -54,12 +50,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,WeiboSDKDelegate{
         //显示窗口
         self.window?.makeKeyAndVisible()
         
-        //提交一个授权请求
-        var request:WBAuthorizeRequest! = WBAuthorizeRequest.request() as! WBAuthorizeRequest
-        request.redirectURI = RedirectURL
-        request.scope = "all"
-        WeiboSDK.sendRequest(request)
-        
+
         return true
     }
     
@@ -90,11 +81,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate,WeiboSDKDelegate{
         else if(response.isKindOfClass(WBAuthorizeResponse))
         {
             
-            let title = "认证结果"
-            let message = "response.userId:\((response as! WBAuthorizeResponse).userID)\nresponse.accessToken: \((response as! WBAuthorizeResponse).accessToken)\n响应状态: \(response.statusCode)\n响应UserInfo数据: \(response.userInfo)\n原请求UserInfo数据: \(response.requestUserInfo)"
+            //let title = "认证结果"
+            //let message = "response.userId:\((response as! WBAuthorizeResponse).userID)\nresponse.accessToken: \((response as! WBAuthorizeResponse).accessToken)\n响应状态: \(response.statusCode.rawValue)\n响应UserInfo数据: \(response.userInfo)\n原请求UserInfo数据: \(response.requestUserInfo)"
+            //let okAction = UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: {action in print("You click the ok")})
+            //userID = (response as! WBAuthorizeResponse).userID
+            //accessToken = (response as! WBAuthorizeResponse).accessToken
+            //refreshToken = (response as! WBAuthorizeResponse).refreshToken
+            //let showview = UIAlertController(title: title, message: message, preferredStyle: .Alert)
+            //showview.addAction(okAction)
+            //self.window?.rootViewController!.presentViewController(showview, animated: true, completion: nil)
             
-            let showview = UIAlertController(title: title, message: message, preferredStyle: .Alert)
-            self.window?.rootViewController!.presentViewController(showview, animated: true, completion: nil)
+            if(response.statusCode.rawValue >= 0)
+            {
+                IsLogin = true
+                userID = (response as! WBAuthorizeResponse).userID
+                accessToken = (response as! WBAuthorizeResponse).accessToken
+                refreshToken = (response as! WBAuthorizeResponse).refreshToken
+                let tabbarVC = MainTabbarController()
+                self.window?.rootViewController = tabbarVC
+            }
+            ExiseAuthorization()
         }
         
     }
@@ -119,6 +125,38 @@ class AppDelegate: UIResponder, UIApplicationDelegate,WeiboSDKDelegate{
 
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    }
+    
+    /**
+     判断授权
+     */
+    func ExiseAuthorization(){
+        let us = NSUserDefaults.standardUserDefaults()
+        if(us.boolForKey("isLogin"))
+        {
+            IsLogin = true
+            if(us.stringForKey("accessToken") != nil)
+            {
+                accessToken = us.stringForKey("accessToken")!
+            }
+            if(us.stringForKey("refreshToken") != nil)
+            {
+                refreshToken = us.stringForKey("refreshToken")!
+            }
+            if(us.stringForKey("userID") != nil)
+            {
+                userID = us.stringForKey("userID")!
+            }
+        }
+        else
+        {
+            if(IsLogin)
+            {
+                us.setValue(accessToken, forKey: "accessToken")
+                us.setValue(refreshToken, forKey: "refreshToken")
+                us.setValue(userID, forKey: "userID")
+            }
+        }
     }
 
 

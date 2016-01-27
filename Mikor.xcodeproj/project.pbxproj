@@ -18,6 +18,7 @@
 		F28E3A281C4FB9EA009D3C53 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F28E3A1E1C4FB9EA009D3C53 /* HomeViewController.swift */; };
 		F28E3A291C4FB9EA009D3C53 /* MessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F28E3A201C4FB9EA009D3C53 /* MessViewController.swift */; };
 		F28E3A2A1C4FB9EA009D3C53 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F28E3A221C4FB9EA009D3C53 /* ProfileViewController.swift */; };
+		F2ACD4CC1C58FAE2000EC5FF /* AppcoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2ACD4CB1C58FAE2000EC5FF /* AppcoreData.swift */; };
 		F2F900041C515316007BE1EC /* ScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F900031C515316007BE1EC /* ScrollViewController.swift */; };
 		F2FFB4A21C54F01700B86DE7 /* libWeiboSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F2FFB4961C54F01700B86DE7 /* libWeiboSDK.a */; };
 		F2FFB4A31C54F01700B86DE7 /* WeiboSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F2FFB49F1C54F01700B86DE7 /* WeiboSDK.bundle */; };
@@ -48,6 +49,7 @@
 		F28E3A1E1C4FB9EA009D3C53 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		F28E3A201C4FB9EA009D3C53 /* MessViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessViewController.swift; sourceTree = "<group>"; };
 		F28E3A221C4FB9EA009D3C53 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		F2ACD4CB1C58FAE2000EC5FF /* AppcoreData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppcoreData.swift; path = Model/AppcoreData.swift; sourceTree = "<group>"; };
 		F2F900031C515316007BE1EC /* ScrollViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrollViewController.swift; sourceTree = "<group>"; };
 		F2FFB4961C54F01700B86DE7 /* libWeiboSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeiboSDK.a; sourceTree = "<group>"; };
 		F2FFB4971C54F01700B86DE7 /* WBHttpRequest+WeiboGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WBHttpRequest+WeiboGame.h"; sourceTree = "<group>"; };
@@ -118,6 +120,7 @@
 		F22E553B1C4E539D007C48CB /* Mikor */ = {
 			isa = PBXGroup;
 			children = (
+				F2ACD4CA1C58FA74000EC5FF /* Model */,
 				F28E3A141C4FB9E9009D3C53 /* CustomController */,
 				F28E3A191C4FB9EA009D3C53 /* ViewController */,
 				F28E3A181C4FB9EA009D3C53 /* Tool */,
@@ -199,6 +202,14 @@
 				F28E3A221C4FB9EA009D3C53 /* ProfileViewController.swift */,
 			);
 			path = Profile;
+			sourceTree = "<group>";
+		};
+		F2ACD4CA1C58FA74000EC5FF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F2ACD4CB1C58FAE2000EC5FF /* AppcoreData.swift */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 		F2F900021C514FF3007BE1EC /* Guide */ = {
@@ -323,6 +334,7 @@
 				F22E553D1C4E539D007C48CB /* AppDelegate.swift in Sources */,
 				F28E3A291C4FB9EA009D3C53 /* MessViewController.swift in Sources */,
 				F28E3A271C4FB9EA009D3C53 /* ComposeViewController.swift in Sources */,
+				F2ACD4CC1C58FAE2000EC5FF /* AppcoreData.swift in Sources */,
 				F2F900041C515316007BE1EC /* ScrollViewController.swift in Sources */,
 				F28E3A231C4FB9EA009D3C53 /* ControllerExtension.swift in Sources */,
 				F28E3A251C4FB9EA009D3C53 /* MainTabbarController.swift in Sources */,
