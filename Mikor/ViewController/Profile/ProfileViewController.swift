@@ -8,7 +8,9 @@
 
 import UIKit
 
-class ProfileViewController: UIViewController {
+class ProfileViewController: UIViewController,NSURLSessionDelegate,NSURLSessionDataDelegate {
+    var session:NSURLSession!
+    
     override func viewDidLoad(){
         super.viewDidLoad()
         
@@ -40,6 +42,15 @@ class ProfileViewController: UIViewController {
     func InitUser()
     {
         self.navigationItem.leftBarButtonItem = UIBarButtonItem.FontItem(self, action: "AddFirends", text: "添加好友")
+        
+        //Http GET请求用户信息
+        /**
+请求地址:https://api.weibo.com/2/users/show.json*/
+        let requsturl = "https://api.weibo.com/2/users/show.json?access_token=\(accessToken)&&uid=\(userID)"
+        
+        
+        AsynchronousRequest(requsturl)
+        
     }
     /**
     初始化游客信息
@@ -119,5 +130,57 @@ class ProfileViewController: UIViewController {
         request.redirectURI = RedirectURL
         request.scope = "all"
         WeiboSDK.sendRequest(request)
+    }
+    
+    
+    /**
+     异步请求
+     用于进行微博API HTTP请求
+     */
+    func AsynchronousRequest(url:String)
+    {
+        
+        print("开始请求")
+        //连接请求
+        let request = NSMutableURLRequest(URL: NSURL(string: url)!)
+        //微博API使用 GET请求
+        request.HTTPMethod = "GET"
+        let config = NSURLSessionConfiguration.defaultSessionConfiguration()//默认配置
+        config.timeoutIntervalForRequest = 15//超时时间15秒
+        
+        session = NSURLSession(configuration: config, delegate: self, delegateQueue: nil)//将本次请求放入列队
+        
+        let task = session.dataTaskWithRequest(request, completionHandler:{(
+            data,request,error) -> Void in
+            if error == nil{
+                
+                print("连接成功")
+                
+                //let result : NSData! = try? NSJSONSerialization.dataWithJSONObject(data!, options: [])
+//                let result = NSString(data: data!, encoding: NSUTF8StringEncoding)
+//
+//                print(result)
+                let jsonresult : AnyObject! = try? NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.AllowFragments)
+                
+                print("解析成功")
+                
+                print("昵称:\(jsonresult.objectForKey("name"))")
+                print("描述:\(jsonresult.objectForKey("description"))")
+                
+                
+            }else
+            {
+                
+                print("失败:")
+                print(error?.code)
+                print(error?.localizedDescription)
+                print(error?.localizedFailureReason)
+            }
+            
+            })
+        
+        
+        task.resume()
+        
     }
 }

@@ -27,7 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,WeiboSDKDelegate{
         
         //获取版本号判断是否展示导航
         let ud = NSUserDefaults.standardUserDefaults()
-        let appVersion = "2016.01.22.1.0.2"
+        let appVersion = "2016.01.22.1.0.5"
         let currentVersion = ud.stringForKey("version")
         if(currentVersion == nil)
         {
