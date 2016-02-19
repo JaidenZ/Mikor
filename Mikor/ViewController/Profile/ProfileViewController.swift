@@ -8,23 +8,59 @@
 
 import UIKit
 
-class ProfileViewController: UIViewController,NSURLSessionDelegate,NSURLSessionDataDelegate {
+class ProfileViewController: UIViewController,NSURLSessionDelegate,NSURLSessionDataDelegate,UITableViewDelegate,UITableViewDataSource {
     var session:NSURLSession!
+    
+    var userinfotb:UITableView?
+    var profileitem:[SectionModel] = []
+    
     
     override func viewDidLoad(){
         super.viewDidLoad()
-        
         print("加载一次")
         //设置导航栏透明
         //self.navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
         //self.navigationController?.navigationBar.shadowImage = UIImage()
         if(IsLogin)
         {
+            
             InitUser()
         }
         else
         {
-            InitVisitor()
+            
+            let settinginfo:SectionModel = SectionModel()
+            //创建信息
+            let rowmodel1 = RowModel()
+            rowmodel1.Title = "新的好友"
+            let rowmodel2 = RowModel()
+            rowmodel2.Title = "我的微博"
+            let rowmodel3 = RowModel()
+            rowmodel3.Title = "新的好友"
+            let rowmodel4 = RowModel()
+            rowmodel4.Title = "我的粉丝"
+            
+            settinginfo.rowsItem.append(rowmodel1)
+            settinginfo.rowsItem.append(rowmodel2)
+            settinginfo.rowsItem.append(rowmodel3)
+            settinginfo.rowsItem.append(rowmodel4)
+            settinginfo.SectionName = "设置选项卡"
+            
+            let profileinfo:SectionModel = SectionModel()
+            profileinfo.SectionName = "我的信息"
+            let profilemodel = RowModel()
+            profilemodel.Title = "赵浩君Jaiden"
+            profilemodel.Description = "不吃核桃"
+            profileinfo.rowsItem.append(profilemodel)
+            
+            
+            profileitem.append(profileinfo)
+            profileitem.append(settinginfo)
+            //创建分组样式的UITableView
+            userinfotb = UITableView(frame: self.view.bounds,style: .Grouped)
+            userinfotb?.dataSource = self
+            self.view.addSubview(userinfotb!)
+            //InitVisitor()
         }
         self.view.backgroundColor = UIColor.whiteColor()
         
@@ -36,6 +72,39 @@ class ProfileViewController: UIViewController,NSURLSessionDelegate,NSURLSessionD
         super.didReceiveMemoryWarning()
     }
     
+    
+    //返回分组数
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return profileitem.count
+    }
+    
+    //返回每组行数
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return profileitem[section].RowsCount()
+    }
+    
+    //创建各单元显示内容(创建参数indexPath指定的单元）
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath)
+        -> UITableViewCell
+    {
+        var cell = UITableViewCell(style: UITableViewCellStyle.Value1, reuseIdentifier: nil)
+        cell.textLabel?.text = profileitem[indexPath.section].rowsItem[indexPath.row].Title
+        cell.detailTextLabel?.text = profileitem[indexPath.section].rowsItem[indexPath.row].Description
+        cell.accessoryType = .DisclosureIndicator
+        
+        //print("描述:\(cell.detailTextLabel?.text)")
+        print("描述:\(profileitem[indexPath.section].rowsItem[indexPath.row].Description)")
+        return cell
+    }
+    
+    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return profileitem[section].SectionName
+    }
+    
+//    func tableView(tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+//        return profileitem[section].SectionDescription
+//    }
+    
     /**
     初始化用户信息
     */
@@ -45,13 +114,41 @@ class ProfileViewController: UIViewController,NSURLSessionDelegate,NSURLSessionD
         
         //Http GET请求用户信息
         /**
-请求地址:https://api.weibo.com/2/users/show.json*/
-        let requsturl = "https://api.weibo.com/2/users/show.json?access_token=\(accessToken)&&uid=\(userID)"
+        请求地址:https://api.weibo.com/2/users/show.json*/
+        let requesturl = "https://api.weibo.com/2/users/show.json?access_token=\(accessToken)&&uid=\(userID)"
         
-        
-        AsynchronousRequest(requsturl)
-        
+        print("开始请求")
+        //连接请求
+        let request = NSMutableURLRequest(URL: NSURL(string: requesturl)!)
+        //微博API使用 GET请求
+        request.HTTPMethod = "GET"
+        let config = NSURLSessionConfiguration.defaultSessionConfiguration()//默认配置
+        config.timeoutIntervalForRequest = 15//超时时间15秒
+        session = NSURLSession(configuration: config, delegate: self, delegateQueue: nil)//将本次请求放入列队
+        let task = session.dataTaskWithRequest(request, completionHandler:{(
+            data,request,error) -> Void in
+            if error == nil{
+                
+                //解析信息
+                let jsonresult:AnyObject! = try? NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.AllowFragments)
+                
+                print("解析")
+                print("name:\(jsonresult.objectForKey("name")!)")
+                print("end")
+
+            }
+            else
+            {
+                print("失败:")
+                print(error?.code)
+                print(error?.localizedDescription)
+                print(error?.localizedFailureReason)
+            }})
+        task.resume()
+
     }
+    
+    
     /**
     初始化游客信息
     */
@@ -59,13 +156,13 @@ class ProfileViewController: UIViewController,NSURLSessionDelegate,NSURLSessionD
     {
         
         //设置背景
-        let background = UIImageView(frame: CGRectMake(0, 0, self.view.bounds.width, self.view.bounds.height))
+        let background = UIImageView(frame: CGRectMake(0, 66, self.view.bounds.width, self.view.bounds.height*0.3))
         background.backgroundColor = UIColor.grayColor()
         background.image = UIImage(named: "UserBackDefault1")
         let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.ExtraLight)
         let blureView = UIVisualEffectView(effect: blurEffect)
         blureView.frame = CGRectMake(0, 0, self.view.bounds.width, self.view.bounds.height)
-        background.addSubview(blureView)
+        //background.addSubview(blureView)
         
         
         //设置头像
@@ -147,40 +244,20 @@ class ProfileViewController: UIViewController,NSURLSessionDelegate,NSURLSessionD
         request.HTTPMethod = "GET"
         let config = NSURLSessionConfiguration.defaultSessionConfiguration()//默认配置
         config.timeoutIntervalForRequest = 15//超时时间15秒
-        
         session = NSURLSession(configuration: config, delegate: self, delegateQueue: nil)//将本次请求放入列队
-        
         let task = session.dataTaskWithRequest(request, completionHandler:{(
             data,request,error) -> Void in
             if error == nil{
                 
-                print("连接成功")
                 
-                //let result : NSData! = try? NSJSONSerialization.dataWithJSONObject(data!, options: [])
-//                let result = NSString(data: data!, encoding: NSUTF8StringEncoding)
-//
-//                print(result)
-                let jsonresult : AnyObject! = try? NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.AllowFragments)
-                
-                print("解析成功")
-                
-                print("昵称:\(jsonresult.objectForKey("name"))")
-                print("描述:\(jsonresult.objectForKey("description"))")
-                
-                
-            }else
+            }
+            else
             {
-                
                 print("失败:")
                 print(error?.code)
                 print(error?.localizedDescription)
                 print(error?.localizedFailureReason)
-            }
-            
-            })
-        
-        
+            }})
         task.resume()
-        
     }
 }
