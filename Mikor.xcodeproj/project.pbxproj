@@ -11,7 +11,6 @@
 		F22E55421C4E539D007C48CB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F22E55401C4E539D007C48CB /* Main.storyboard */; };
 		F22E55441C4E539D007C48CB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F22E55431C4E539D007C48CB /* Assets.xcassets */; };
 		F22E55471C4E539D007C48CB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F22E55451C4E539D007C48CB /* LaunchScreen.storyboard */; };
-		F2849A201C77739600EC7EB6 /* SectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2849A1F1C77739600EC7EB6 /* SectionModel.swift */; };
 		F28E3A231C4FB9EA009D3C53 /* ControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F28E3A151C4FB9E9009D3C53 /* ControllerExtension.swift */; };
 		F28E3A251C4FB9EA009D3C53 /* MainTabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F28E3A171C4FB9EA009D3C53 /* MainTabbarController.swift */; };
 		F28E3A261C4FB9EA009D3C53 /* FoundViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F28E3A1B1C4FB9EA009D3C53 /* FoundViewController.swift */; };
@@ -19,8 +18,9 @@
 		F28E3A281C4FB9EA009D3C53 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F28E3A1E1C4FB9EA009D3C53 /* HomeViewController.swift */; };
 		F28E3A291C4FB9EA009D3C53 /* MessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F28E3A201C4FB9EA009D3C53 /* MessViewController.swift */; };
 		F28E3A2A1C4FB9EA009D3C53 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F28E3A221C4FB9EA009D3C53 /* ProfileViewController.swift */; };
+		F2A8AC3E1C778D9900B4706F /* ProfileInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A8AC3C1C778D9900B4706F /* ProfileInfo.swift */; };
+		F2A8AC3F1C778D9900B4706F /* SectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A8AC3D1C778D9900B4706F /* SectionModel.swift */; };
 		F2ACD4CC1C58FAE2000EC5FF /* AppcoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2ACD4CB1C58FAE2000EC5FF /* AppcoreData.swift */; };
-		F2BAE7FB1C7606AB008122DF /* ProfileInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2BAE7FA1C7606AB008122DF /* ProfileInfo.swift */; };
 		F2F900041C515316007BE1EC /* ScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F900031C515316007BE1EC /* ScrollViewController.swift */; };
 		F2FFB4A21C54F01700B86DE7 /* libWeiboSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F2FFB4961C54F01700B86DE7 /* libWeiboSDK.a */; };
 		F2FFB4A31C54F01700B86DE7 /* WeiboSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F2FFB49F1C54F01700B86DE7 /* WeiboSDK.bundle */; };
@@ -44,7 +44,6 @@
 		F22E55431C4E539D007C48CB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F22E55461C4E539D007C48CB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F22E55481C4E539D007C48CB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F2849A1F1C77739600EC7EB6 /* SectionModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionModel.swift; sourceTree = "<group>"; };
 		F28E3A151C4FB9E9009D3C53 /* ControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControllerExtension.swift; sourceTree = "<group>"; };
 		F28E3A171C4FB9EA009D3C53 /* MainTabbarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabbarController.swift; sourceTree = "<group>"; };
 		F28E3A1B1C4FB9EA009D3C53 /* FoundViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoundViewController.swift; sourceTree = "<group>"; };
@@ -52,8 +51,9 @@
 		F28E3A1E1C4FB9EA009D3C53 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		F28E3A201C4FB9EA009D3C53 /* MessViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessViewController.swift; sourceTree = "<group>"; };
 		F28E3A221C4FB9EA009D3C53 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		F2A8AC3C1C778D9900B4706F /* ProfileInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileInfo.swift; path = Model/ProfileInfo.swift; sourceTree = "<group>"; };
+		F2A8AC3D1C778D9900B4706F /* SectionModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SectionModel.swift; path = Model/SectionModel.swift; sourceTree = "<group>"; };
 		F2ACD4CB1C58FAE2000EC5FF /* AppcoreData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppcoreData.swift; path = Model/AppcoreData.swift; sourceTree = "<group>"; };
-		F2BAE7FA1C7606AB008122DF /* ProfileInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileInfo.swift; sourceTree = "<group>"; };
 		F2F900031C515316007BE1EC /* ScrollViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrollViewController.swift; sourceTree = "<group>"; };
 		F2FFB4961C54F01700B86DE7 /* libWeiboSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeiboSDK.a; sourceTree = "<group>"; };
 		F2FFB4971C54F01700B86DE7 /* WBHttpRequest+WeiboGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WBHttpRequest+WeiboGame.h"; sourceTree = "<group>"; };
@@ -124,9 +124,9 @@
 		F22E553B1C4E539D007C48CB /* Mikor */ = {
 			isa = PBXGroup;
 			children = (
+				F28E3A191C4FB9EA009D3C53 /* ViewController */,
 				F2ACD4CA1C58FA74000EC5FF /* Model */,
 				F28E3A141C4FB9E9009D3C53 /* CustomController */,
-				F28E3A191C4FB9EA009D3C53 /* ViewController */,
 				F28E3A181C4FB9EA009D3C53 /* Tool */,
 				F22E55511C4E54B2007C48CB /* Supporting Files */,
 			);
@@ -212,8 +212,8 @@
 			isa = PBXGroup;
 			children = (
 				F2ACD4CB1C58FAE2000EC5FF /* AppcoreData.swift */,
-				F2BAE7FA1C7606AB008122DF /* ProfileInfo.swift */,
-				F2849A1F1C77739600EC7EB6 /* SectionModel.swift */,
+				F2A8AC3C1C778D9900B4706F /* ProfileInfo.swift */,
+				F2A8AC3D1C778D9900B4706F /* SectionModel.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -337,7 +337,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F28E3A261C4FB9EA009D3C53 /* FoundViewController.swift in Sources */,
-				F2BAE7FB1C7606AB008122DF /* ProfileInfo.swift in Sources */,
+				F2A8AC3E1C778D9900B4706F /* ProfileInfo.swift in Sources */,
 				F22E553D1C4E539D007C48CB /* AppDelegate.swift in Sources */,
 				F28E3A291C4FB9EA009D3C53 /* MessViewController.swift in Sources */,
 				F28E3A271C4FB9EA009D3C53 /* ComposeViewController.swift in Sources */,
@@ -347,7 +347,7 @@
 				F28E3A251C4FB9EA009D3C53 /* MainTabbarController.swift in Sources */,
 				F28E3A2A1C4FB9EA009D3C53 /* ProfileViewController.swift in Sources */,
 				F28E3A281C4FB9EA009D3C53 /* HomeViewController.swift in Sources */,
-				F2849A201C77739600EC7EB6 /* SectionModel.swift in Sources */,
+				F2A8AC3F1C778D9900B4706F /* SectionModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

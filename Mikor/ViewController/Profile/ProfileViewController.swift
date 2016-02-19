@@ -36,7 +36,7 @@ class ProfileViewController: UIViewController,NSURLSessionDelegate,NSURLSessionD
             let rowmodel2 = RowModel()
             rowmodel2.Title = "我的微博"
             let rowmodel3 = RowModel()
-            rowmodel3.Title = "新的好友"
+            rowmodel3.Title = "我的关注"
             let rowmodel4 = RowModel()
             rowmodel4.Title = "我的粉丝"
             
