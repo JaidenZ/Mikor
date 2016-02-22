@@ -15,37 +15,131 @@ public class ProfileInfo:NSObject
     /**
     用户昵称
     */
-    var name : String!
+    private var name : String = ""
     /**
     用户头像
     */
-    var avatar_hd : String!
+    private var avatar_hd : String = ""
     /**
     用户背景
     */
-    var coverimage : String!
+    private var coverimage : String = ""
     /**
     用户描述
     */
-    var descriptions : String!
+    private var descriptions : String = ""
     /*
     关注数
     */
-    var followers_count : Int32 = 0
+    private var followers_count : Int32 = 0
     /*
     粉丝数
     */
-    var friends_count : Int32 = 0
+    private var friends_count : Int32 = 0
     /*
     位置
     */
-    var location : String!
+    private var location : String = ""
     /*
     微博总数
     */
-    var weibo_count : Int32 = 0
+    private var weibo_count : Int32 = 0
     
-        
+    /*
+     用户昵称
+     */
+    public var Name:String{
+        get{
+            return self.name
+        }
+        set{
+            self.name = newValue
+        }
+    }
+    
+    /*
+    用户头像
+    */
+    public var Avatar_hd:String{
+        get{
+            return self.avatar_hd
+        }
+        set{
+            self.avatar_hd = newValue
+        }
+    }
+    /*
+    用户背景
+    */
+    public var Coverimage:String{
+        get{
+            return self.coverimage
+        }
+        set{
+            self.coverimage = newValue
+        }
+    }
+    
+    /*
+    用户描述
+    */
+    public var Descriptions:String{
+        get{
+            return self.descriptions
+        }
+        set{
+            self.descriptions = newValue
+        }
+    }
+    
+    /*
+    位置
+    */
+    public var Location:String{
+        get{
+            return self.location
+        }
+        set{
+            self.location = newValue
+        }
+    }
+    
+    /*
+    关注数
+    */
+    public var Followers_count:Int32{
+        get{
+            return self.followers_count
+        }
+        set{
+            self.followers_count = newValue
+        }
+    }
+    
+    /*
+    粉丝数
+    */
+    public var Friends_count:Int32{
+        get{
+            return self.friends_count
+        }
+        set{
+            self.friends_count = newValue
+        }
+    }
+    
+    /*
+    微博总数
+    */
+    public var Weibo_count:Int32{
+        get{
+            return self.weibo_count
+        }
+        set{
+            self.weibo_count = newValue
+        }
+    }
+    
     
 /*
 用户信息初始化
