@@ -34,7 +34,7 @@ class ProfileViewController: UIViewController,NSURLSessionDelegate,NSURLSessionD
             let rowmodel1 = RowModel()
             rowmodel1.Title = "新的好友"
             let rowmodel2 = RowModel()
-            rowmodel2.Title = "我的微博"
+            rowmodel2.Title = "我的相册"
             let rowmodel3 = RowModel()
             rowmodel3.Title = "我的关注"
             let rowmodel4 = RowModel()
@@ -50,7 +50,7 @@ class ProfileViewController: UIViewController,NSURLSessionDelegate,NSURLSessionD
             profileinfo.SectionName = "我的信息"
             let profilemodel = RowModel()
             profilemodel.Title = "赵浩君Jaiden"
-            profilemodel.Description = "不吃核桃"
+            profilemodel.Description = "简介:不吃核桃"
             profileinfo.rowsItem.append(profilemodel)
             
             
@@ -87,11 +87,13 @@ class ProfileViewController: UIViewController,NSURLSessionDelegate,NSURLSessionD
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath)
         -> UITableViewCell
     {
-        var cell = UITableViewCell(style: UITableViewCellStyle.Value1, reuseIdentifier: nil)
+        
+        
+        var cell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: nil)
         cell.textLabel?.text = profileitem[indexPath.section].rowsItem[indexPath.row].Title
         cell.detailTextLabel?.text = profileitem[indexPath.section].rowsItem[indexPath.row].Description
-        cell.accessoryType = .DisclosureIndicator
-        
+        cell.accessoryType = .None
+        cell.imageView?.image = UIImage(named: "UserBackDefault1")
         //print("描述:\(cell.detailTextLabel?.text)")
         print("描述:\(profileitem[indexPath.section].rowsItem[indexPath.row].Description)")
         return cell
