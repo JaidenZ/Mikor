@@ -51,14 +51,20 @@ class ProfileViewController: UIViewController,NSURLSessionDelegate,NSURLSessionD
             let profilemodel = RowModel()
             profilemodel.Title = "赵浩君Jaiden"
             profilemodel.Description = "简介:不吃核桃"
+            let p = RowModel()
+            p.Title = "粉丝数"
+        
             profileinfo.rowsItem.append(profilemodel)
             
             
+            profileinfo.rowsItem.append(p)
             profileitem.append(profileinfo)
             profileitem.append(settinginfo)
             //创建分组样式的UITableView
             userinfotb = UITableView(frame: self.view.bounds,style: .Grouped)
             userinfotb?.dataSource = self
+            userinfotb?.delegate = self
+            userinfotb?.separatorStyle = .None
             self.view.addSubview(userinfotb!)
             //InitVisitor()
         }
@@ -88,20 +94,44 @@ class ProfileViewController: UIViewController,NSURLSessionDelegate,NSURLSessionD
         -> UITableViewCell
     {
         
+        var reuseidenty:String = "profiletableview"
+        var cell = ProfileTableViewCell(style: .Default, reuseIdentifier: reuseidenty)
         
-        var cell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: nil)
-        cell.textLabel?.text = profileitem[indexPath.section].rowsItem[indexPath.row].Title
-        cell.detailTextLabel?.text = profileitem[indexPath.section].rowsItem[indexPath.row].Description
-        cell.accessoryType = .None
-        cell.imageView?.image = UIImage(named: "UserBackDefault1")
-        //print("描述:\(cell.detailTextLabel?.text)")
-        print("描述:\(profileitem[indexPath.section].rowsItem[indexPath.row].Description)")
+        if(indexPath.section == 0 && indexPath.row == 0)
+        {
+            //获取头像
+            var image:UIImage = UIImage(named: "defaultuser_128px")!
+            cell._profileimage.image = image
+            cell._profiletitle.text = profileitem[indexPath.section].rowsItem[indexPath.row].Title
+            cell._profiledescrib.text = profileitem[indexPath.section].rowsItem[indexPath.row].Description
+   
+        }else
+        {
+            cell._profiletitle.text = profileitem[indexPath.section].rowsItem[indexPath.row].Title
+        }
         return cell
+        
     }
     
-    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return profileitem[section].SectionName
+    func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 1
     }
+    
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+       if(indexPath.section == 0 && indexPath.row == 0)
+       {
+        return 80
+        }
+        return 44
+    }
+    
+    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 20
+    }
+    
+//    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+//        return profileitem[section].SectionName
+//    }
     
 //    func tableView(tableView: UITableView, titleForFooterInSection section: Int) -> String? {
 //        return profileitem[section].SectionDescription
@@ -173,14 +203,14 @@ class ProfileViewController: UIViewController,NSURLSessionDelegate,NSURLSessionD
         head.backgroundColor = UIColor.whiteColor()
         //缩放默认头像
         let headtemp = UIImage(named: "defaultuser_128px")
-        let size = headtemp?.size
-        let width = (size?.width)! * 0.85
-        let height = (size?.height)! * 0.85
-        UIGraphicsBeginImageContext(size!)
-        headtemp?.drawInRect(CGRectMake((size?.width)!/2 - width/2, 0, width, height))
-        let newhead = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        head.image = newhead
+//        let size = headtemp?.size
+//        let width = (size?.width)!
+//        let height = (size?.height)!
+//        UIGraphicsBeginImageContext(size!)
+//        headtemp?.drawInRect(CGRectMake((size?.width)!/2 - width/2, 0, width, height))
+//        let newhead = UIGraphicsGetImageFromCurrentImageContext()
+//        UIGraphicsEndImageContext()
+        head.image = headtemp
         
         head.layer.cornerRadius = headborderlong/2
         head.layer.masksToBounds = true
