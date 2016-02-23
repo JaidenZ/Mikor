@@ -93,6 +93,7 @@ class ProfileViewController: UIViewController,NSURLSessionDelegate,NSURLSessionD
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath)
         -> UITableViewCell
     {
+<<<<<<< HEAD
         
         var reuseidenty:String = "profiletableview"
         var cell = ProfileTableViewCell(style: .Default, reuseIdentifier: reuseidenty)
@@ -109,6 +110,47 @@ class ProfileViewController: UIViewController,NSURLSessionDelegate,NSURLSessionD
         {
             cell._profiletitle.text = profileitem[indexPath.section].rowsItem[indexPath.row].Title
         }
+=======
+        //声明cell标示用于加载缓存池
+        //cell的标示声明成静态变量有利于性能优化
+        static var profileinfocellID = "profileInfo"
+        static var profilefuncID = "profileFunc"
+
+        //根据标志在缓存池里取cell
+        var cell : UITableViewCell
+
+        if(indexPath.section == 0)
+        {
+            cell = tableview.dequeueReusableCellWithIdentifier(profileinfocellID)
+        }
+        else if(indexPath.section == 1)
+        {
+            cell = tableview.dequeueReusableCellWithIdentifier(profilefuncID)
+        }
+
+        if(cell == nil)
+        {
+            if(indexPath.section == 0)
+            {
+                cell = UITableView(style: UITableViewCellStyle.Subtitle,reseIdentifier: profileinfocellID)
+                cell.accessoryType = .None
+
+                //设置头像
+                cell.imageView?.image = UIImage(named: "defaultuser_128px")
+            }
+            else if(indexPath.section == 1)
+            {
+                cell = UITableView(style: UITableViewCellStyle.Subtitle,reseIdentifier: profilefuncID)
+                cell.accessoryType = .None
+                //设置功能图标
+                
+            }
+
+            cell.textLabel?.text = profileitem[indexPath.section].rowsItem[indexPath.row].Title
+            cell.detailTextLabel?.text = profileitem[indexPath.section].rowsItem[indexPath.row].Description
+        }
+
+>>>>>>> origin/master
         return cell
         
     }
