@@ -50,7 +50,7 @@ class ProfileViewController: UIViewController,NSURLSessionDelegate,NSURLSessionD
             profileinfo.SectionName = "我的信息"
             let profilemodel = RowModel()
             profilemodel.Title = "赵浩君Jaiden"
-            profilemodel.Description = "简介:不吃核桃"
+            profilemodel.Description = "简介:经常用脑，不吃核桃"
             let p = RowModel()
             p.Title = "粉丝数"
         
@@ -101,7 +101,15 @@ class ProfileViewController: UIViewController,NSURLSessionDelegate,NSURLSessionD
         if(indexPath.section == 0 && indexPath.row == 0)
         {
             //获取头像
-            var image:UIImage = UIImage(named: "defaultuser_128px")!
+            let imageUrlString:String = "http://ww3.sinaimg.cn/crop.0.0.750.750.1024/6efd3a94jw8eu9p49908cj20ku0kudh1.jpg";
+            //通过String类型，转换成NSUrl对象
+            let url:NSURL! = NSURL(string: imageUrlString)
+            //从网络获取数据流
+            var data:NSData! = NSData(contentsOfURL: url)
+            
+            //通过数据流初始化图片
+            var image:UIImage! = UIImage(data: data)
+
             cell._profileimage.image = image
             cell._profiletitle.text = profileitem[indexPath.section].rowsItem[indexPath.row].Title
             cell._profiledescrib.text = profileitem[indexPath.section].rowsItem[indexPath.row].Description

@@ -17,21 +17,22 @@ class ProfileTableViewCell: UITableViewCell {
     lazy var _profileimage:UIImageView = {
         
         
-        let imageview:UIImageView = UIImageView(frame: CGRectMake(self.bounds.width * 0.05, self.bounds.height * 0.15, self.bounds.width * 0.2, self.bounds.width * 0.2))
-        
+        let imageview:UIImageView = UIImageView(frame: CGRectMake(self.bounds.width * 0.04, self.bounds.height * 0.25, self.bounds.width * 0.18, self.bounds.width * 0.18))
+        imageview.layer.cornerRadius = 29
+        imageview.layer.masksToBounds = true
         return imageview
     }()
     //懒加载标题
     lazy var _profiletitle:UILabel = {
-        let title:UILabel = UILabel(frame: CGRectMake(self.bounds.width * 0.35,self.bounds.height * 0.4,self.bounds.width*0.5,self.bounds.height*0.5))
-        title.font = UIFont(name: "Helvetica", size: 18)
-        title.layer.borderColor = UIColor.redColor().CGColor
+        let title:UILabel = UILabel(frame: CGRectMake(self.bounds.width * 0.27,self.bounds.height * 0.45,self.bounds.width*0.5,self.bounds.height*0.5))
+        title.font = UIFont(name: "Helvetica", size: 16)
+        
         return title
     }()
     lazy var _profiledescrib:UILabel = {
-        let describ:UILabel = UILabel(frame: CGRectMake(self.bounds.width * 0.35,self.bounds.height * 0.8,self.bounds.width*0.5,self.bounds.height*0.5))
+        let describ:UILabel = UILabel(frame: CGRectMake(self.bounds.width * 0.27,self.bounds.height,self.bounds.width*0.5,self.bounds.height*0.5))
         describ.font = UIFont(name: "Helvetica", size: 12)
-        describ.layer.borderColor = UIColor.grayColor().CGColor
+        describ.textColor = UIColor.grayColor()
         return describ
         
     }()
@@ -41,7 +42,8 @@ class ProfileTableViewCell: UITableViewCell {
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-
+        
+        self.backgroundView = UIImageView(image: UIImage(named: "CellBorder"))
         self.addSubview(_profileimage)
         self.addSubview(_profiletitle)
         self.addSubview(_profiledescrib)
