@@ -34,6 +34,7 @@ class ProfileTableViewCell: UITableViewCell {
         describ.textColor = UIColor.grayColor()
         return describ
     }()
+    
     //懒加载功能按钮
     lazy var _profileacces:UIImageView = {
         let accesview:UIImageView = UIImageView(frame: CGRectMake(self.bounds.width * 0.8,self.bounds.height * 0.45,self.bounds.width * 0.15,self.bounds.width * 0.2))
@@ -68,12 +69,13 @@ class ProfileTableViewCell: UITableViewCell {
         self.addSubview(_profileicon)//功能图标
         self.addSubview(_celltitle)//功能标题
         self.addSubview(_btnweibo)
+
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
