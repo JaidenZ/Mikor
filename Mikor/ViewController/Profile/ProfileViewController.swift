@@ -98,8 +98,10 @@ class ProfileViewController: UIViewController,NSURLSessionDelegate,NSURLSessionD
         var reuseidenty:String = "profiletableview"
         var cell = ProfileTableViewCell(style: .Default, reuseIdentifier: reuseidenty)
         
-        if(indexPath.section == 0 && indexPath.row == 0)
+        if(indexPath.section == 0)
         {
+            if(indexPath.row == 0)
+            {
             //获取头像
             let imageUrlString:String = "http://ww3.sinaimg.cn/crop.0.0.750.750.1024/6efd3a94jw8eu9p49908cj20ku0kudh1.jpg";
             //通过String类型，转换成NSUrl对象
@@ -113,10 +115,16 @@ class ProfileViewController: UIViewController,NSURLSessionDelegate,NSURLSessionD
             cell._profileimage.image = image
             cell._profiletitle.text = profileitem[indexPath.section].rowsItem[indexPath.row].Title
             cell._profiledescrib.text = profileitem[indexPath.section].rowsItem[indexPath.row].Description
+            }
+            else if(indexPath.row == 1)
+            {
+                cell._btnweibo.setTitle("微博", forState: .Normal)
+            }
    
-        }else
+        }
+        else
         {
-            cell._profiletitle.text = profileitem[indexPath.section].rowsItem[indexPath.row].Title
+            cell._celltitle.text = profileitem[indexPath.section].rowsItem[indexPath.row].Title
         }
 
         return cell
