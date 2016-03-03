@@ -37,12 +37,14 @@ class ProfileTableViewCell: UITableViewCell {
     
     //懒加载功能按钮
     lazy var _profileacces:UIImageView = {
-        let accesview:UIImageView = UIImageView(frame: CGRectMake(self.bounds.width * 0.8,self.bounds.height * 0.45,self.bounds.width * 0.15,self.bounds.width * 0.2))
+        let accesview:UIImageView = UIImageView(frame: CGRectMake(self.bounds.width * 1.1,self.bounds.height * 0.4,self.bounds.height * 0.15,self.bounds.height * 0.28))
         return accesview
     }()
     //懒加载功能图标
     lazy var _profileicon:UIImageView = {
-        let iconview:UIImageView = UIImageView(frame: CGRectMake(self.bounds.width * 0.04, self.bounds.height * 0.26, self.bounds.width * 0.15, self.bounds.width * 0.15))
+        let iconview:UIImageView = UIImageView(frame: CGRectMake(self.bounds.height * 0.3, self.bounds.height * 0.25, self.bounds.height * 0.5, self.bounds.height * 0.5))
+
+//        iconview.backgroundColor = UIColor.blackColor()
         return iconview
     }()
     //懒加载功能标题

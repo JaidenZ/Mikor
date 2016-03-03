@@ -33,12 +33,16 @@ class ProfileViewController: UIViewController,NSURLSessionDelegate,NSURLSessionD
             //创建信息
             let rowmodel1 = RowModel()
             rowmodel1.Title = "新的好友"
+            rowmodel1.IconImage = "empty_friends"
             let rowmodel2 = RowModel()
             rowmodel2.Title = "我的相册"
+            rowmodel2.IconImage = "empty_picture"
             let rowmodel3 = RowModel()
             rowmodel3.Title = "我的关注"
+            rowmodel3.IconImage = "empty_default"
             let rowmodel4 = RowModel()
             rowmodel4.Title = "我的粉丝"
+            rowmodel4.IconImage = "empty_like"
             
             settinginfo.rowsItem.append(rowmodel1)
             settinginfo.rowsItem.append(rowmodel2)
@@ -125,6 +129,8 @@ class ProfileViewController: UIViewController,NSURLSessionDelegate,NSURLSessionD
         else
         {
             cell._celltitle.text = profileitem[indexPath.section].rowsItem[indexPath.row].Title
+            cell._profileacces.image = UIImage(named: "mini_arrow")
+            cell._profileicon.image = UIImage(named: "\(profileitem[indexPath.section].rowsItem[indexPath.row].IconImage)")
         }
 
         return cell
