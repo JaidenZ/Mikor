@@ -54,11 +54,22 @@ class ProfileTableViewCell: UITableViewCell {
         return celltitle
     }()
     
-    lazy var _btnweibo:UIButton = {
-        let btnweibo:UIButton = UIButton(frame: CGRectMake(0,0,self.bounds.width / 3,self.bounds.height))
-
+    lazy var _btnweibo:ProfileCellButton = {
+        let btnweibo:ProfileCellButton = ProfileCellButton(frame: CGRectMake(0,0,self.bounds.width / 3,self.bounds.height))
         btnweibo.setTitleColor(UIColor.blackColor(), forState: .Normal)
         return btnweibo
+    }()
+    
+    lazy var _btnfriend:ProfileCellButton = {
+        let btnfriend:ProfileCellButton = ProfileCellButton(frame: CGRectMake(self.bounds.width / 3,0,self.bounds.width / 3,self.bounds.height))
+        
+        return btnfriend
+    }()
+    
+    lazy var _btnfollow:ProfileCellButton = {
+        let btnfollow:ProfileCellButton = ProfileCellButton(frame: CGRectMake(self.bounds.width / 3 * 2,0,self.bounds.width / 3,self.bounds.height))
+        return btnfollow
+        
     }()
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
@@ -71,7 +82,8 @@ class ProfileTableViewCell: UITableViewCell {
         self.addSubview(_profileicon)//功能图标
         self.addSubview(_celltitle)//功能标题
         self.addSubview(_btnweibo)
-
+        self.addSubview(_btnfriend)
+        self.addSubview(_btnfollow)
     }
     
     required init?(coder aDecoder: NSCoder) {

@@ -11,6 +11,7 @@
 		F22E55421C4E539D007C48CB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F22E55401C4E539D007C48CB /* Main.storyboard */; };
 		F22E55441C4E539D007C48CB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F22E55431C4E539D007C48CB /* Assets.xcassets */; };
 		F22E55471C4E539D007C48CB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F22E55451C4E539D007C48CB /* LaunchScreen.storyboard */; };
+		F26911A71C8AEF7F006A8F83 /* ProfileCellButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F26911A61C8AEF7F006A8F83 /* ProfileCellButton.swift */; };
 		F275FE121C7C88A10094E697 /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F275FE111C7C88A10094E697 /* ProfileTableViewCell.swift */; };
 		F28E3A231C4FB9EA009D3C53 /* ControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F28E3A151C4FB9E9009D3C53 /* ControllerExtension.swift */; };
 		F28E3A251C4FB9EA009D3C53 /* MainTabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F28E3A171C4FB9EA009D3C53 /* MainTabbarController.swift */; };
@@ -45,6 +46,7 @@
 		F22E55431C4E539D007C48CB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F22E55461C4E539D007C48CB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F22E55481C4E539D007C48CB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F26911A61C8AEF7F006A8F83 /* ProfileCellButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileCellButton.swift; sourceTree = "<group>"; };
 		F275FE111C7C88A10094E697 /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCell.swift; sourceTree = "<group>"; };
 		F28E3A151C4FB9E9009D3C53 /* ControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControllerExtension.swift; sourceTree = "<group>"; };
 		F28E3A171C4FB9EA009D3C53 /* MainTabbarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabbarController.swift; sourceTree = "<group>"; };
@@ -153,6 +155,7 @@
 				F28E3A151C4FB9E9009D3C53 /* ControllerExtension.swift */,
 				F28E3A171C4FB9EA009D3C53 /* MainTabbarController.swift */,
 				F275FE111C7C88A10094E697 /* ProfileTableViewCell.swift */,
+				F26911A61C8AEF7F006A8F83 /* ProfileCellButton.swift */,
 			);
 			path = CustomController;
 			sourceTree = "<group>";
@@ -340,6 +343,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F28E3A261C4FB9EA009D3C53 /* FoundViewController.swift in Sources */,
+				F26911A71C8AEF7F006A8F83 /* ProfileCellButton.swift in Sources */,
 				F2A8AC3E1C778D9900B4706F /* ProfileInfo.swift in Sources */,
 				F22E553D1C4E539D007C48CB /* AppDelegate.swift in Sources */,
 				F28E3A291C4FB9EA009D3C53 /* MessViewController.swift in Sources */,

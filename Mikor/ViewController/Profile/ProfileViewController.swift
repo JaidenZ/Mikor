@@ -122,7 +122,13 @@ class ProfileViewController: UIViewController,NSURLSessionDelegate,NSURLSessionD
             }
             else if(indexPath.row == 1)
             {
-                cell._btnweibo.setTitle("微博", forState: .Normal)
+                //cell._btnweibo.setTitle("微博", forState: .Normal)
+                cell._btnweibo._btnTitle.text = "微博"
+                cell._btnweibo._btnValue.text = "500"
+                cell._btnfriend._btnTitle.text = "关注"
+                cell._btnfriend._btnValue.text = "400"
+                cell._btnfollow._btnTitle.text = "粉丝"
+                cell._btnfollow._btnValue.text = "500"
             }
    
         }
