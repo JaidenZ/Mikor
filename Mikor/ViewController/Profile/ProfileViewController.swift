@@ -17,7 +17,6 @@ class ProfileViewController: UIViewController,NSURLSessionDelegate,NSURLSessionD
     
     override func viewDidLoad(){
         super.viewDidLoad()
-        print("加载一次")
         //设置导航栏透明
         //self.navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
         //self.navigationController?.navigationBar.shadowImage = UIImage()
@@ -93,6 +92,9 @@ class ProfileViewController: UIViewController,NSURLSessionDelegate,NSURLSessionD
         return profileitem[section].RowsCount()
     }
     
+    
+    
+    
     //创建各单元显示内容(创建参数indexPath指定的单元）
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath)
         -> UITableViewCell
@@ -101,7 +103,6 @@ class ProfileViewController: UIViewController,NSURLSessionDelegate,NSURLSessionD
         //定义标识加入缓存
         var reuseidenty:String = "profiletableview"
         var cell = ProfileTableViewCell(style: .Default, reuseIdentifier: reuseidenty)
-        
         if(indexPath.section == 0)
         {
             if(indexPath.row == 0)
@@ -122,13 +123,18 @@ class ProfileViewController: UIViewController,NSURLSessionDelegate,NSURLSessionD
             }
             else if(indexPath.row == 1)
             {
-                //cell._btnweibo.setTitle("微博", forState: .Normal)
-                cell._btnweibo._btnTitle.text = "微博"
-                cell._btnweibo._btnValue.text = "500"
-                cell._btnfriend._btnTitle.text = "关注"
-                cell._btnfriend._btnValue.text = "400"
-                cell._btnfollow._btnTitle.text = "粉丝"
-                cell._btnfollow._btnValue.text = "500"
+                let btnweibo:ProfileCellButton = ProfileCellButton(frame: CGRectMake(0,0,cell.bounds.width / 3,cell.bounds.height))
+                let btnfriend:ProfileCellButton = ProfileCellButton(frame: CGRectMake(cell.bounds.width / 3,0,cell.bounds.width / 3,cell.bounds.height))
+                let btnfollow:ProfileCellButton = ProfileCellButton(frame: CGRectMake(cell.bounds.width / 3 * 2,0,cell.bounds.width / 3,cell.bounds.height))
+                btnweibo._btnTitle.text = "微博"
+                btnweibo._btnValue.text = "500"
+                btnfriend._btnTitle.text = "关注"
+                btnfriend._btnValue.text = "400"
+                btnfollow._btnTitle.text = "粉丝"
+                btnfollow._btnValue.text = "500"
+                cell.addSubview(btnweibo)
+                cell.addSubview(btnfriend)
+                cell.addSubview(btnfollow)
             }
    
         }
@@ -148,9 +154,12 @@ class ProfileViewController: UIViewController,NSURLSessionDelegate,NSURLSessionD
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-       if(indexPath.section == 0 && indexPath.row == 0)
-       {
-        return 80
+        if(indexPath.section == 0 && indexPath.row == 0)
+        {
+            return 80
+        }else if(indexPath.section == 0 && indexPath.row == 1)
+        {
+            return 50
         }
         return 44
     }

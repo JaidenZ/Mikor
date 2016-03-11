@@ -16,8 +16,8 @@ class ProfileTableViewCell: UITableViewCell {
     
     //懒加载用户头像
     lazy var _profileimage:UIImageView = {
-        let imageview:UIImageView = UIImageView(frame: CGRectMake(self.bounds.width * 0.04, self.bounds.height * 0.25, self.bounds.width * 0.18, self.bounds.width * 0.18))
-        imageview.layer.cornerRadius = 29
+        let imageview:UIImageView = UIImageView(frame: CGRectMake(self.bounds.width * 0.05, self.bounds.height * 0.25, self.bounds.height * 1.3, self.bounds.height * 1.3))
+        imageview.layer.cornerRadius = 28
         imageview.layer.masksToBounds = true
         return imageview
     }()
@@ -37,7 +37,7 @@ class ProfileTableViewCell: UITableViewCell {
     
     //懒加载功能按钮
     lazy var _profileacces:UIImageView = {
-        let accesview:UIImageView = UIImageView(frame: CGRectMake(self.bounds.width * 1.1,self.bounds.height * 0.4,self.bounds.height * 0.15,self.bounds.height * 0.28))
+        let accesview:UIImageView = UIImageView(frame: CGRectMake(self.bounds.width * 0.93,self.bounds.height * 0.4,self.bounds.height * 0.15,self.bounds.height * 0.28))
         return accesview
     }()
     //懒加载功能图标
@@ -53,27 +53,13 @@ class ProfileTableViewCell: UITableViewCell {
         celltitle.font = UIFont(name: "Helvetica",size:16)
         return celltitle
     }()
+
     
-    lazy var _btnweibo:ProfileCellButton = {
-        let btnweibo:ProfileCellButton = ProfileCellButton(frame: CGRectMake(0,0,self.bounds.width / 3,self.bounds.height))
-        btnweibo.setTitleColor(UIColor.blackColor(), forState: .Normal)
-        return btnweibo
-    }()
     
-    lazy var _btnfriend:ProfileCellButton = {
-        let btnfriend:ProfileCellButton = ProfileCellButton(frame: CGRectMake(self.bounds.width / 3,0,self.bounds.width / 3,self.bounds.height))
-        
-        return btnfriend
-    }()
-    
-    lazy var _btnfollow:ProfileCellButton = {
-        let btnfollow:ProfileCellButton = ProfileCellButton(frame: CGRectMake(self.bounds.width / 3 * 2,0,self.bounds.width / 3,self.bounds.height))
-        return btnfollow
-        
-    }()
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        self.frame = CGRectMake(0, 0, UIScreen.mainScreen().bounds.width, self.bounds.height)
         self.backgroundView = UIImageView(image: UIImage(named: "CellBorder"))
         self.addSubview(_profileimage)//用户头像
         self.addSubview(_profiletitle)//用户标题
@@ -81,9 +67,6 @@ class ProfileTableViewCell: UITableViewCell {
         self.addSubview(_profileacces)//功能按钮
         self.addSubview(_profileicon)//功能图标
         self.addSubview(_celltitle)//功能标题
-        self.addSubview(_btnweibo)
-        self.addSubview(_btnfriend)
-        self.addSubview(_btnfollow)
     }
     
     required init?(coder aDecoder: NSCoder) {

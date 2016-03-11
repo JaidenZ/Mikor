@@ -31,7 +31,7 @@ class ProfileCellButton: UIButton {
     }()
     
     lazy var _btnValue:UILabel={
-        let value:UILabel = UILabel(frame: CGRectMake(self.bounds.width * 0.1,0,self.bounds.width * 0.8,self.bounds.height*0.4))
+        let value:UILabel = UILabel(frame: CGRectMake(self.bounds.width * 0.1,self.bounds.height * 0.1,self.bounds.width * 0.8,self.bounds.height*0.4))
         value.textAlignment = .Center
         value.font = UIFont(name: "Helvetica", size: 14)
         //value.textColor = UIColor.blackColor()
