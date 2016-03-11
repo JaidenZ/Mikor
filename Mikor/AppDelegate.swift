@@ -9,10 +9,13 @@
 import UIKit
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate,WeiboSDKDelegate{
+class AppDelegate: UIResponder, UIApplicationDelegate,WeiboSDKDelegate,NSURLSessionDelegate{
 
     var window: UIWindow?
 
+    var session:NSURLSession!
+    
+    
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
         
@@ -47,6 +50,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate,WeiboSDKDelegate{
             self.window?.rootViewController = tabbarVC
             
         }
+        
+        
+        
         //显示窗口
         self.window?.makeKeyAndVisible()
         
@@ -97,6 +103,48 @@ class AppDelegate: UIResponder, UIApplicationDelegate,WeiboSDKDelegate{
                 userID = (response as! WBAuthorizeResponse).userID
                 accessToken = (response as! WBAuthorizeResponse).accessToken
                 refreshToken = (response as! WBAuthorizeResponse).refreshToken
+                
+                
+                //响应成功 请求用户数据
+                //Http GET请求用户信息
+                /**
+                请求地址:https://api.weibo.com/2/users/show.json*/
+                let requesturl = "https://api.weibo.com/2/users/show.json?access_token=\(accessToken)&&uid=\(userID)"
+                
+                print("开始请求")
+                //连接请求
+                let request = NSMutableURLRequest(URL: NSURL(string: requesturl)!)
+                //微博API使用 GET请求
+                request.HTTPMethod = "GET"
+                let config = NSURLSessionConfiguration.defaultSessionConfiguration()//默认配置
+                config.timeoutIntervalForRequest = 15//超时时间15秒
+                session = NSURLSession(configuration: config, delegate: self, delegateQueue: nil)//将本次请求放入列队
+                let task = session.dataTaskWithRequest(request, completionHandler:{(
+                    data,request,error) -> Void in
+                    if error == nil{
+                        
+                        //解析信息
+                        let jsonresult:AnyObject! = try? NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.AllowFragments)
+                        
+                        profilemodel.Title = "\(jsonresult.objectForKey("name")!)"
+                        profilemodel.Description = "\(jsonresult.objectForKey("description")!)"
+                        imageUrlString = "\(jsonresult.objectForKey("avatar_hd")!)"
+                        _followers_count = Int32((jsonresult.objectForKey("followers_count")?.integerValue)!)
+                        _friends_count = Int32((jsonresult.objectForKey("friends_count")?.integerValue)!)
+                        _weibo_count = Int32((jsonresult.objectForKey("statuses_count")?.integerValue)!)
+                    }
+                    else
+                    {
+                        print("失败:")
+                        print(error?.code)
+                        print(error?.localizedDescription)
+                        print(error?.localizedFailureReason)
+                    }})
+                task.resume()
+
+                
+                InitBasicInfo()
+                
                 let tabbarVC = MainTabbarController()
                 self.window?.rootViewController = tabbarVC
             }
@@ -157,6 +205,44 @@ class AppDelegate: UIResponder, UIApplicationDelegate,WeiboSDKDelegate{
                 us.setValue(userID, forKey: "userID")
             }
         }
+    }
+    
+    /**
+     初始化基础数据
+     */
+    func InitBasicInfo()
+    {
+        let settinginfo:SectionModel = SectionModel()
+        settinginfo.SectionName = "设置选项卡"
+        //创建信息
+        let rowmodel1 = RowModel()
+        rowmodel1.Title = "新的好友"
+        rowmodel1.IconImage = "empty_friends"
+        let rowmodel2 = RowModel()
+        rowmodel2.Title = "我的相册"
+        rowmodel2.IconImage = "empty_picture"
+        let rowmodel3 = RowModel()
+        rowmodel3.Title = "我的关注"
+        rowmodel3.IconImage = "empty_default"
+        let rowmodel4 = RowModel()
+        rowmodel4.Title = "我的粉丝"
+        rowmodel4.IconImage = "empty_like"
+        
+        settinginfo.rowsItem.append(rowmodel1)
+        settinginfo.rowsItem.append(rowmodel2)
+        settinginfo.rowsItem.append(rowmodel3)
+        settinginfo.rowsItem.append(rowmodel4)
+        
+        let profileinfo:SectionModel = SectionModel()
+        profileinfo.SectionName = "我的信息"
+        let btnmodel = RowModel()
+        
+        
+        profileinfo.rowsItem.append(profilemodel)
+        profileinfo.rowsItem.append(btnmodel)
+        
+        profileitem.append(profileinfo)
+        profileitem.append(settinginfo)
     }
 
 

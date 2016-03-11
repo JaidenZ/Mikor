@@ -42,3 +42,32 @@ var expirationDate:NSData = NSData()
 */
 var refreshToken:String = ""
 
+/**
+用户信息集合
+*/
+var profileitem:[SectionModel] = []
+
+/**
+用户个人信息模型
+*/
+var profilemodel:RowModel = RowModel()
+
+/**
+用户头像地址
+*/
+var imageUrlString:String = "";
+
+/*
+粉丝数
+*/
+var _followers_count : Int32 = 0
+
+/*
+关注数
+*/
+var _friends_count : Int32 = 0
+
+/*
+微博总数
+*/
+var _weibo_count : Int32 = 0

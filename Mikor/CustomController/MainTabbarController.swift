@@ -86,7 +86,6 @@ class MainTabbarController: UITabBarController , UITabBarControllerDelegate{
     
     //判断是否需要切换tabbar
     func tabBarController(tabBarController: UITabBarController, shouldSelectViewController viewController: UIViewController) -> Bool {
-        print("切换视图")
         if(viewController.tabBarItem.title == nil)
         {
             let view = ComposeViewController()

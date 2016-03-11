@@ -9,11 +9,8 @@
 import UIKit
 
 class ProfileViewController: UIViewController,NSURLSessionDelegate,NSURLSessionDataDelegate,UITableViewDelegate,UITableViewDataSource {
-    var session:NSURLSession!
     
     var userinfotb:UITableView?
-    var profileitem:[SectionModel] = []
-    
     
     override func viewDidLoad(){
         super.viewDidLoad()
@@ -24,52 +21,18 @@ class ProfileViewController: UIViewController,NSURLSessionDelegate,NSURLSessionD
         {
             
             InitUser()
-        }
-        else
-        {
             
-            let settinginfo:SectionModel = SectionModel()
-            //创建信息
-            let rowmodel1 = RowModel()
-            rowmodel1.Title = "新的好友"
-            rowmodel1.IconImage = "empty_friends"
-            let rowmodel2 = RowModel()
-            rowmodel2.Title = "我的相册"
-            rowmodel2.IconImage = "empty_picture"
-            let rowmodel3 = RowModel()
-            rowmodel3.Title = "我的关注"
-            rowmodel3.IconImage = "empty_default"
-            let rowmodel4 = RowModel()
-            rowmodel4.Title = "我的粉丝"
-            rowmodel4.IconImage = "empty_like"
-            
-            settinginfo.rowsItem.append(rowmodel1)
-            settinginfo.rowsItem.append(rowmodel2)
-            settinginfo.rowsItem.append(rowmodel3)
-            settinginfo.rowsItem.append(rowmodel4)
-            settinginfo.SectionName = "设置选项卡"
-            
-            let profileinfo:SectionModel = SectionModel()
-            profileinfo.SectionName = "我的信息"
-            let profilemodel = RowModel()
-            profilemodel.Title = "赵浩君Jaiden"
-            profilemodel.Description = "简介:经常用脑，不吃核桃"
-            let p = RowModel()
-            p.Title = "粉丝数"
-        
-            profileinfo.rowsItem.append(profilemodel)
-            
-            
-            profileinfo.rowsItem.append(p)
-            profileitem.append(profileinfo)
-            profileitem.append(settinginfo)
             //创建分组样式的UITableView
             userinfotb = UITableView(frame: self.view.bounds,style: .Grouped)
             userinfotb?.dataSource = self
             userinfotb?.delegate = self
             userinfotb?.separatorStyle = .None
             self.view.addSubview(userinfotb!)
-            //InitVisitor()
+        }
+        else
+        {
+            
+            InitVisitor()
         }
         self.view.backgroundColor = UIColor.whiteColor()
         
@@ -107,8 +70,7 @@ class ProfileViewController: UIViewController,NSURLSessionDelegate,NSURLSessionD
         {
             if(indexPath.row == 0)
             {
-            //获取头像
-            let imageUrlString:String = "http://ww3.sinaimg.cn/crop.0.0.750.750.1024/6efd3a94jw8eu9p49908cj20ku0kudh1.jpg";
+            
             //通过String类型，转换成NSUrl对象
             let url:NSURL! = NSURL(string: imageUrlString)
             //从网络获取数据流
@@ -127,11 +89,11 @@ class ProfileViewController: UIViewController,NSURLSessionDelegate,NSURLSessionD
                 let btnfriend:ProfileCellButton = ProfileCellButton(frame: CGRectMake(cell.bounds.width / 3,0,cell.bounds.width / 3,cell.bounds.height))
                 let btnfollow:ProfileCellButton = ProfileCellButton(frame: CGRectMake(cell.bounds.width / 3 * 2,0,cell.bounds.width / 3,cell.bounds.height))
                 btnweibo._btnTitle.text = "微博"
-                btnweibo._btnValue.text = "500"
+                btnweibo._btnValue.text = "\(_weibo_count)"
                 btnfriend._btnTitle.text = "关注"
-                btnfriend._btnValue.text = "400"
+                btnfriend._btnValue.text = "\(_friends_count)"
                 btnfollow._btnTitle.text = "粉丝"
-                btnfollow._btnValue.text = "500"
+                btnfollow._btnValue.text = "\(_followers_count)"
                 cell.addSubview(btnweibo)
                 cell.addSubview(btnfriend)
                 cell.addSubview(btnfollow)
@@ -182,40 +144,7 @@ class ProfileViewController: UIViewController,NSURLSessionDelegate,NSURLSessionD
     func InitUser()
     {
         self.navigationItem.leftBarButtonItem = UIBarButtonItem.FontItem(self, action: "AddFirends", text: "添加好友")
-        
-        //Http GET请求用户信息
-        /**
-        请求地址:https://api.weibo.com/2/users/show.json*/
-        let requesturl = "https://api.weibo.com/2/users/show.json?access_token=\(accessToken)&&uid=\(userID)"
-        
-        print("开始请求")
-        //连接请求
-        let request = NSMutableURLRequest(URL: NSURL(string: requesturl)!)
-        //微博API使用 GET请求
-        request.HTTPMethod = "GET"
-        let config = NSURLSessionConfiguration.defaultSessionConfiguration()//默认配置
-        config.timeoutIntervalForRequest = 15//超时时间15秒
-        session = NSURLSession(configuration: config, delegate: self, delegateQueue: nil)//将本次请求放入列队
-        let task = session.dataTaskWithRequest(request, completionHandler:{(
-            data,request,error) -> Void in
-            if error == nil{
-                
-                //解析信息
-                let jsonresult:AnyObject! = try? NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.AllowFragments)
-                
-                print("解析")
-                print("name:\(jsonresult.objectForKey("name")!)")
-                print("end")
 
-            }
-            else
-            {
-                print("失败:")
-                print(error?.code)
-                print(error?.localizedDescription)
-                print(error?.localizedFailureReason)
-            }})
-        task.resume()
 
     }
     
@@ -308,27 +237,27 @@ class ProfileViewController: UIViewController,NSURLSessionDelegate,NSURLSessionD
     func AsynchronousRequest(url:String)
     {
         
-        print("开始请求")
-        //连接请求
-        let request = NSMutableURLRequest(URL: NSURL(string: url)!)
-        //微博API使用 GET请求
-        request.HTTPMethod = "GET"
-        let config = NSURLSessionConfiguration.defaultSessionConfiguration()//默认配置
-        config.timeoutIntervalForRequest = 15//超时时间15秒
-        session = NSURLSession(configuration: config, delegate: self, delegateQueue: nil)//将本次请求放入列队
-        let task = session.dataTaskWithRequest(request, completionHandler:{(
-            data,request,error) -> Void in
-            if error == nil{
-                
-                
-            }
-            else
-            {
-                print("失败:")
-                print(error?.code)
-                print(error?.localizedDescription)
-                print(error?.localizedFailureReason)
-            }})
-        task.resume()
+//        print("开始请求")
+//        //连接请求
+//        let request = NSMutableURLRequest(URL: NSURL(string: url)!)
+//        //微博API使用 GET请求
+//        request.HTTPMethod = "GET"
+//        let config = NSURLSessionConfiguration.defaultSessionConfiguration()//默认配置
+//        config.timeoutIntervalForRequest = 15//超时时间15秒
+//        session = NSURLSession(configuration: config, delegate: self, delegateQueue: nil)//将本次请求放入列队
+//        let task = session.dataTaskWithRequest(request, completionHandler:{(
+//            data,request,error) -> Void in
+//            if error == nil{
+//                
+//                
+//            }
+//            else
+//            {
+//                print("失败:")
+//                print(error?.code)
+//                print(error?.localizedDescription)
+//                print(error?.localizedFailureReason)
+//            }})
+//        task.resume()
     }
 }

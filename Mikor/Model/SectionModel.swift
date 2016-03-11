@@ -53,6 +53,7 @@ public class RowModel
     private var _iconimge:String = ""
     private var _title:String = ""
     private var _description:String = ""
+    
     /*
     行图标
     */
@@ -86,6 +87,6 @@ public class RowModel
             self._description = newValue
         }
     }
-    
+
 
 }
